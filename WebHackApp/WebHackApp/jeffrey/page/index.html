@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Jeffrey's Home Page</title> <!-- browser tab, default bookmark -->
+		<link href="resource/style/default.css" rel="stylesheet"> <!-- point to css -->
+	</head>
+
+	<body>
+
+		<h1>こにちは!</h1>
+		<h2>こにちは!</h2>
+		<h3>こにちは!</h3>
+		<h4>こにちは!</h4>
+		<p class="text">From the creator of whatever the <strong>F**k</strong> this is...</p>
+		<img id="ConceptArt"
+			src="resource/image/concept-art.jpg"
+			alt="Concept art for game jam"
+		> <!-- alt attribute is used/displayed when image cannot be displayed -->
+
+		<p>Inpsirations for this post-modern beast came from</p>
+
+		<ol> <!-- 'ul' for unordered list -->
+			<li>uhh...</li>
+			<li>I was walking down the street one day, and ...</li>
+			<li>Yea, I actually don't know. Fortune cookies?</li>
+			<li>Whatever, it's a master piece</li>
+			<li>I want to thank my parents; they were ...</li>
+		</ol>
+
+		<a href="http://localhost:3000/">Undoubtably a hyperlink</a>
+
+		<div id="mydiv"></div>
+		<script type="text/babel">
+			ReactDOM.render(
+				<h1>Hello, world!</h1>,
+				document.getElementById('mydiv')
+			);
+		</script>
+
+		<div id="like_button_container"></div>
+
+		<!-- Load React. -->
+		<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+		<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script> <!-- support for development React -->
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> <!-- support for development React -->
+		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- support for JSX -->
+
+		<script src="resource/script/like-button.js"></script>
+
+	</body>
+</html>

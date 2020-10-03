@@ -1,0 +1,9 @@
+li, .text {
+	color: red;
+	width: 500px;
+	border: 1px solid black;
+}
+
+a, #ConceptArt {
+	color: #00B7FF;
+}

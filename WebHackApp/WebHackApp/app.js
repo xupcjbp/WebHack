@@ -1,4 +1,5 @@
 ﻿'use strict';
+// get all libraries
 var debug = require('debug');
 var express = require('express');
 var path = require('path');
@@ -7,13 +8,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// get all router middleware
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var jeffrouter = require( './routes/jeff-router' );
 
 
 var app = express();
 
-// view engine setup
+// view directory remapping setup
+app.set( 'jeffroot', path.join( __dirname, 'jeffrey' ) );
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -23,9 +28,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
+// hooking in router middleware first
 app.use('/', routes);
+app.use( '/jeffrey', jeffrouter );
 app.use('/users', users);
 app.use(express.static("public"));
 app.use(express.static("views"));
@@ -67,7 +74,21 @@ app.use(function (err, req, res, next) {
 });
 
 app.set('port', process.env.PORT || 3000);
-
 var server = app.listen(app.get('port'), function () {
     debug('Express server listening on port ' + server.address().port);
 });
+
+
+// command line 'q' to shut the server down
+const readline = require("readline");
+const terminal = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+terminal.on( "line",
+	function( action ) {
+		if( String( action ) == "q" ) {
+			process.exit( 0 )
+		}
+	}
+);
