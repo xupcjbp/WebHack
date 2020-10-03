@@ -11,7 +11,11 @@ var bodyParser = require('body-parser');
 // get all router middleware
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
 var jeffrouter = require( './routes/jeff-router' );
+
+var ryan = require('./routes/ryan');
+
 
 
 var app = express();
@@ -34,8 +38,15 @@ app.use(cookieParser());
 app.use('/', routes);
 app.use( '/jeffrey', jeffrouter );
 app.use('/users', users);
+app.use('/ryan', ryan);
 app.use(express.static("public"));
 app.use(express.static("views"));
+
+//serve jpeg file
+app.get('/test', function (req, res) {
+    console.log(__dirname);
+    res.sendFile(__dirname + '/test.html');
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -57,11 +68,7 @@ if (app.get('env') === 'development') {
         });
     });
 }
-//serve jpeg file
-app.get('/test', function (req, res) {
-    console.log("hello");
-    res.sendFile(path.join(__dirname + '/test.jpg'));
-});
+
 
 // production error handler
 // no stacktraces leaked to user
