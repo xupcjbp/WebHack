@@ -25,11 +25,7 @@ class RegularButton extends React.Component {
 const domContainer = document.querySelector('#regular_button_container');
 ReactDOM.render(e(RegularButton), domContainer);
 
-var newRequest = new XMLHttpRequest();
-newRequest = open("/users");
-console.log("hello");
-newRequest.send()
-
+const newRequest = new XMLHttpRequest();
 newRequest.onreadystatechange = function (){
     if (XPathResult.status != 200) {
         alert(`Error ${newRequest.status}: ${newRequest.statusText}`);
@@ -38,3 +34,7 @@ newRequest.onreadystatechange = function (){
         console.log(newRequest.responseText);
     }
 };
+newRequest = open("http://localhost:3000/users", true);
+console.log("hello");
+newRequest.send("hi")
+
