@@ -1,0 +1,4 @@
+GET https://api.spotify.com/v1/me/player
+content-type: application/json
+Authorization: Bearer BQD22mq1A8tdlx77-8ANsDPyJXQ_9LZrTaOiZ4Zs6UknQwGo3Rn2MHL2Xq0ETCsMGYHRNuwxyFsMAqvsHQFqbpa6LvFOSXoyZ-pT5aYZeImCM-MQWOHU2MsLfzdkCovHShzPTKp9kAvVAKwwaQ
+Accept: application/json

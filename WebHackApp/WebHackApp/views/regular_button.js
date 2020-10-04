@@ -26,15 +26,12 @@ const domContainer = document.querySelector('#regular_button_container');
 ReactDOM.render(e(RegularButton), domContainer);
 
 const newRequest = new XMLHttpRequest();
+
 newRequest.onreadystatechange = function (){
-    if (XPathResult.status != 200) {
-        alert(`Error ${newRequest.status}: ${newRequest.statusText}`);
-    }
-    else{
+    if (newRequest.readyState == 4 && newRequest.status == 200) {
         console.log(newRequest.responseText);
     }
 };
-newRequest = open("http://localhost:3000/users", true);
-console.log("hello");
+newRequest.open("GET", "http://localhost:3000/users", true);
 newRequest.send("hi")
 
