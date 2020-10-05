@@ -1,60 +1,106 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en-CA">
 	<head>
 		<meta charset="utf-8">
 		<title>Jeffrey's Home Page</title> <!-- browser tab, default bookmark -->
+		<meta name="author" content="Jeffrey Chu Chien Lin"> <!-- name-content pair in metadata elements -->
+		<meta name="description" content="Exploring the capabilities of web programming"> <!-- used by search engine -->
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+
+		<!-- quite a few metadata and link elements are custom, meaning a custom site (like facebook) will try and read it -->
+
 		<link href="resource/style/default.css" rel="stylesheet"> <!-- point to css -->
+		
+		<!--
+			Point to resources online; in this case, fonts
+			font-family: 'Peddana', serif;
+			font-family: 'Raleway', sans-serif;
+		-->
 		<link
 			href="https://fonts.googleapis.com/css2?family=Peddana&family=Raleway:wght@100;400&display=swap"
 			rel="stylesheet"
-		> <!-- point to resources online; in this case, fonts -->
+		>
+
+		<!-- `defer` boolean attribute makes sure Javascripts are loaded after HTML elements -->
+		<script src="resource/script/module.mjs" defer></script> <!-- Javascript can go between opening and closing tags -->
+		<script src="resource/script/main.mjs" defer></script>
 	</head>
 
 	<body>
 
-		<h1>こにちは!</h1> <!-- h1 to h6 are available -->
+		<h1 id="top"><span lang="ja">こにちは</span>!</h1> <!-- h1 to h6 are available -->
+		<!-- span element is semanticless -->
 
-		<p class="label">From the creator of whatever the <strong>F**k</strong> this is...</p>
-		
-		<img id="ConceptArt"
-			src="resource/image/concept-art.jpg"
-			alt="Concept art for game jam"
+		<p class="label"> <!-- Browsers apply default spacing to paragraph elements -->
+			<em>From the creator of whatever the <strong>f**k</strong> this is...</em> <!-- italics and bold: should NOT be used for styling -->
+		</p>
+
+		<img id="conceptArt"
+			 src="resource/image/concept-art.jpg"
+			 alt='Cross-contoured figure wearing a hat and a cape'
+			 title="Jeffrey&apos;s concept art for game jam"
+			 width="1920"
+			 height="1080"
 		> <!-- alt attribute is used/displayed when image cannot be displayed -->
+		<!-- width, height attributes aren't used if CSS is targeting the image -->
 
-		<p>Inpsirations for this post-modern beast came from</p>
+		<div id="lowerPage">
+			<p>
+				<!-- provide the name for the file when users download them -->
+				<a	id="download"
+					href="download/concept-art.jpg"
+					download="JeffreyConceptArt1.jpg"
+					title="Download the concept art showcased above"
+				> <!-- target attribute allows page to open in new tab -->
+					Download concept art
+				</a>
+			</p>
 
-		<ol> <!-- 'ul' for unordered list -->
-			<li>uhh...</li>
-			<li>I was walking down the street one day, and ...</li>
-			<li>Yea, I actually don't know. Fortune cookies?</li>
-			<li>Whatever, it's a master piece</li>
-			<li>I want to thank my parents; they were ...</li>
-			<ul>
-				<li>Nested list; does this work?</li>
-				<li>I sure hope so...</li>
-			</ul>
-		</ol>
+			<p>Inpsirations for this <cb>post-modern</cb> beast came from</p>
 
-		<a href="http://localhost:3000/">Undoubtably a hyperlink</a>
+			<ol> <!-- 'ul' for unordered list -->
+				<li>uhh...</li>
+				<li>I was walking down the street one day, and ...</li>
+				<li>Yea, I actually don't know. Fortune cookies?</li>
+				<li>Whatever, it's a master piece</li>
+				<li>I want to thank my parents; they were ...</li>
+				<ul>
+					<li>Nested list; does this work?</li>
+					<li>I sure hope so...</li>
+					<li>&lt; &gt; &quot; &apos; &amp;</li> <!-- escape characters -->
+				</ul>
+			</ol>
 
-		<div id="mydiv"></div>
-		<script type="text/babel">
-			ReactDOM.render(
-				<h1>Hello, world!</h1>,
-				document.getElementById('mydiv')
-			);
-		</script>
+			<!--
+				To reference document fragments locally, using the example below, you could do href="#top"
+				Use relative link whenever possible
+			-->
+			<p>
+				<a	href="http://localhost/jeffrey/home#top"
+					title="Site Home"
+					target="_blank"
+				> <!-- target attribute allows page to open in new tab -->
+					<img src="resource/image/magnifying-glasss.png" alt='' width="512" height="512">
+					<!-- If image link is broken and `alt` attribute is empty, width and height is what the browser uses for lay the image out. -->
+					<!-- `img` element being laid out allows it to function as a hyperlink; otherwise, the link is gone entirely. -->
+				</a>
+			</p>
 
-		<div id="like_button_container"></div>
+			<!-- sequential whitespace is reduced down to one when rendered -->
+			<p>Oh right,    	my name is <cb>PLACEHOLDER</cb>. Nice to meet you!</p>
 
-		<!-- Load React. -->
-		<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-		<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script> <!-- support for development React -->
-		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> <!-- support for development React -->
-		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- support for JSX -->
+			<p>
+				<!-- All three below are inline elements -->
+				<button>Change user</button>
+				<input id="inputBox" type="text" placeholder="Add something to list...">
+				<input type="text" disabled> <!-- boolean attribute -->
+			</p>
 
-		<script src="resource/script/like-button.js"></script>
+			<p>
+				<a href="navigation/home.html" target="_blank">Navigation demo</a>
+			</p>
+		</div>
 
 	</body>
 </html>

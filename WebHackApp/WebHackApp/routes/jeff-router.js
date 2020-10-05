@@ -1,21 +1,35 @@
 'use strict';
-var path = require('path');
-var express = require('express');
+const path = require('path');
+const express = require('express');
 
-var _resourceRouter = express.Router();
-
+const _resourceRouter = express.Router();
 _resourceRouter.get( '*',
 	function (req, res) {
-		var tmp = path.join( res.app.get( 'jeffroot' ), req.path );
+		let tmp = path.join( res.app.get( 'jeffroot' ), req.path );
 		console.log( 'jeffrey: request resource at ' + tmp );
 		res.sendFile( tmp );
 	}
 );
 
-var router = express.Router();
+const _downloadRouter = express.Router();
+_downloadRouter.get( '*',
+	function (req, res) {
+		let tmp = path.join( res.app.get( 'jeffroot' ), 'download', req.path );
+		console.log( 'jeffrey: request resource at ' + tmp );
+		res.sendFile( tmp );
+	}
+);
+
+const router = express.Router();
+
+// get resource requested by page
+router.use( '*/resource', _resourceRouter );
+
+// get download requested by page
+router.use( '*/download', _downloadRouter );
 
 // get index page
-router.get( '/',
+router.get( '/home',
 	function (req, res) {
 		console.log( 'jeffrey: request index page' );
     	res.sendFile( path.join( res.app.get( 'jeffroot' ), 'page', 'index.html' ) );
@@ -23,16 +37,12 @@ router.get( '/',
 );
 
 // get any page
-router.get( '.*/',
+router.get( /\/.+/,
 	function (req, res) {
-		var tmp = path.join( res.app.get( 'jeffroot' ), 'page', req.path );
+		let tmp = path.join( res.app.get( 'jeffroot' ), 'page', req.path );
 		console.log( 'jeffrey: request page at ' + tmp );
     	res.sendFile( tmp );
 	}
 );
-
-// get resource requested by page
-router.use( '*/resource/', _resourceRouter );
-
 
 module.exports = router;

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Jeffrey's Home Page</title> <!-- browser tab, default bookmark -->
+		<link href="resource/style/default.css" rel="stylesheet"> <!-- point to css -->
+		
+		<!--
+			Point to resources online; in this case, fonts
+			font-family: 'Peddana', serif;
+			font-family: 'Raleway', sans-serif;
+		-->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Peddana&family=Raleway:wght@100;400&display=swap"
+			rel="stylesheet"
+		>
+	</head>
+
+	<body>
+
+		<h1>こにちは!</h1> <!-- h1 to h6 are available -->
+
+		<p class="label">From the creator of whatever the <strong>f**k</strong> this is...</p>
+
+		<img id="conceptArt"
+			src="resource/image/concept-art.jpg"
+			alt="Concept art for game jam"
+		> <!-- alt attribute is used/displayed when image cannot be displayed -->
+
+		<div id="lowerPage">
+			<p>Inpsirations for this <cb>post-modern</cb> beast came from</p>
+
+			<ol> <!-- 'ul' for unordered list -->
+				<li>uhh...</li>
+				<li>I was walking down the street one day, and ...</li>
+				<li>Yea, I actually don't know. Fortune cookies?</li>
+				<li>Whatever, it's a master piece</li>
+				<li>I want to thank my parents; they were ...</li>
+				<ul>
+					<li>Nested list; does this work?</li>
+					<li>I sure hope so...</li>
+				</ul>
+			</ol>
+
+			<a href="http://localhost:3000/">Undoubtably a hyperlink</a>
+
+			<p>Oh right, my name is <cb>PLACEHOLDER</cb>. Nice to meet you!</p>
+
+			<button>Change user</button>
+		</div>
+
+		
+
+		<!-- Load Javascripts at the end so the scripts apply to all HTML elements -->
+		<script src="resource/script/module.mjs"></script>
+		<script src="resource/script/main.mjs"></script>
+	</body>
+</html>

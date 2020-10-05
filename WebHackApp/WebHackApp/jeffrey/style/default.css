@@ -5,37 +5,65 @@ html {
 	background-color: #d5dadb;
 }
 
+body {
+	width: 80%;
+	margin: 10px auto;
+	/* background-image: url( "resource/image/concept-art.jpg" ); */
+}
+
 h1 {
+	margin: 0px; /* disable browser's default styling for h1 elements */
+	padding: 20px 0px;
 	font-size: 60px;
 	text-align: center;
+	text-shadow: 5px 5px 5px #838383; /* vertical offset, horizontal offset, blur radius */
+}
+
+cb {
+	background-color: #bdbdbd;
+	padding: 6px;
+	letter-spacing: 1px;
 }
 
 /* class selector */
 .label {
 	font-size: 24px;
-	color: #bd8b3e;
+	color: #d38b2e;
 	text-align: center;
-	border: 1px solid black;
 
 	/*
 		Width alone will offset the center align so that the text is centered within the 800 px
 		Add in margin to center the width
 	*/
-	width: 800px;
-	margin: 15px auto;
+	width: 80%;
+	margin: 0px auto; /* vertical horizontal */
 }
 
 p, li {
 	font-size: 16px;
-	line-height: 1.5; /*  */
+	line-height: 1.5; /* 1.5 line spacing */
 	letter-spacing: 1px;
 }
 
 /* id selector */
-#ConceptArt {
-	
+#conceptArt {
+	width: 80%;
+	height: 45%;
+	border: 3px solid black;
+
+	/*
+		images are inline elements; they don't take spacing declarations
+		change the display to block elements, like <body>, which uses spacing declarations
+	*/
+	display: block;
+	margin: 0px auto;
+}
+
+#lowerPage {
+	width: 80%;
+	margin: 0px auto;
 }
 
 a {
-	color: #00b7ff;
+	color: #0077ff;
 }

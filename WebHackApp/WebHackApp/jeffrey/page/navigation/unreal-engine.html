@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en-CA">
+	<head>
+		<meta charset="utf-8">
+		<title>Jeffrey's UE4 Page</title> <!-- browser tab, default bookmark -->
+		<meta name="author" content="Jeffrey Chu Chien Lin"> <!-- name-content pair in metadata elements -->
+		<meta name="description" content="Practice: setting up a navigation menu"> <!-- used by search engine -->
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+	</head>
+
+	<body>
+
+		<ol>
+			<li>
+				<a href="home.html">Home</a>
+			</li>
+			<li>
+				<a href="unreal-engine.html">Unreal Engine</a>
+			</li>
+			<li>
+				<a href="substance.html">Substance</a>
+			</li>
+		</ol>
+
+		<h1>Unreal Engine Home Page</h1>
+
+		<!-- abbreviation -->
+		<p><abbr title="Unreal Engine 4">UE4</abbr> content here</p>
+
+		<dl>
+			<dt>Blueprint</dt>
+			<dd>Scripting functionality built-in to the engine</dd>
+			<dd>Effectively allows designers to write code without actually coding</dd>
+			<dt>UObject</dt>
+			<dt>AActor</dt>
+			<dd>The basis of units placed in a level</dd>
+		</dl>
+
+		<!-- Browsers usually don't do much with `cite` attribute -->
+		<blockquote cite="https://docs.unrealengine.com/en-US/API/Runtime/Engine/GameFramework/AActor/index.html">
+			<p>
+				Actor is the base class for an Object that can be placed or spawned in a level.
+				Actors may contain a collection of ActorComponents, which can be used to control how actors move, how they are rendered, etc.
+				The other main function of an Actor is the replication of properties and function calls across the network during play.
+			</p>
+		</blockquote>
+
+		<!-- Instead of using the `cite` attribute, we could mark it using an anchor -->
+		<p>According to
+			<a href="https://docs.unrealengine.com/en-US/API/Runtime/Engine/GameFramework/AActor/index.html">
+				<cite>Unreal Engine documentation</cite></a>:
+				<!-- `cite` element is meant to mark referened work, such as book title or article -->
+		</p>
+		<blockquote>
+			<p>
+				Actor is the base class for an Object that can be placed or spawned in a level.
+				Actors may contain a collection of ActorComponents, which can be used to control how actors move, how they are rendered, etc.
+				The other main function of an Actor is the replication of properties and function calls across the network during play.
+			</p>
+		</blockquote>
+
+		<p>I said, <q>why does that mean?</q></p>
+
+		<div> <!-- HTML provides tags for code, variable, keyboard input, and program output; tag `pre` allows whitespace as is -->
+			<p>Here is an example of a C++ function.</p>
+<pre><code>void myFunc( int i ) {
+    int localVar = i + 1;
+}</code></pre>
+<!-- tabs look weird by default on the browser; so I used 4 spaces in the code block above -->
+			<p>In the function above, <var>localVar</var> is a local variable scoped in the function.</p>
+
+			<p>Here is an example of bash command line.</p>
+<pre><kbd>$ echo hello</kbd>
+<samp>hello</samp></pre>
+		</div> <!-- to be honest, I find this hard to use; <pre> tag makes HTML look ugly -->
+
+		<!-- time and date notation is not always machine-friendly (different culture, languages ... etc); html defines a way to mark it -->
+		<p>This page was created on <time datetime="2020-10-05">October 5<sup>th</sup>, 2020.</time></p>
+
+	</body>
+</html>

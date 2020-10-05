@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en-CA">
+	<head>
+		<meta charset="utf-8">
+		<title>Jeffrey's Substance Page</title> <!-- browser tab, default bookmark -->
+		<meta name="author" content="Jeffrey Chu Chien Lin"> <!-- name-content pair in metadata elements -->
+		<meta name="description" content="Practice: setting up a navigation menu"> <!-- used by search engine -->
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+	</head>
+
+	<body>
+
+		<nav>
+			<ol>
+				<li>
+					<a href="home.html">Home</a>
+				</li>
+				<li>
+					<a href="unreal-engine.html">Unreal Engine</a>
+				</li>
+				<li>
+					<a href="substance.html">Substance</a>
+				</li>
+			</ol>
+		</nav>
+
+		<header>
+			<h1>Substance Home Page</h1>
+		</header>
+
+		<main> <!-- content unique to this page; once per page -->
+			<article> <!-- standalone content -->
+				<h2>Substance texturing content here</h2>
+				<p>I am a complete beginner, and I am confused.</p>
+
+				<h2>Basic tool knowlegde</h2>
+				<p>Again, I am a basic beginner. I don't know shit.</p>
+			</article>
+			<hr> <!-- horizontal rule; line running through the page -->
+			<section> <!-- grouping of elements -->
+				<h2>Section starts here</h2> <!-- Best practice: begin a section with a heading -->
+
+				<p>
+					There once was a man named O'Dell<br>
+					Who loved to write HTML<br>
+					But his structure was bad, his semantics were sad<br>
+					and his markup didn't read very well.
+				</p>
+				<p>ps. I must confess, I plagiarised.</p>
+			</section>
+
+			<!-- not `div` and `span` are semanticless; for wrapping and targeting in CSS/Javascript -->
+			<!-- `div` is a block element; while `span` is an inline element -->
+			<div>This is a <span>block of text</span></div>
+
+			<aside> <!-- complements main content, but not directly related to it -->
+				<h2>You may be interested in these (they're actually just click-baits)</h2>
+
+				<ul>
+					<li><a>C++ Hello World</a></li>
+					<li><a>Lua Hello World</a></li>
+					<li><a>C# Hello World</a></li>
+				</ul>
+			</aside>
+		</main>
+
+		<footer>
+			<p>All copyrights to Jeffrey (actually fuck it)</p>
+		</footer>
+
+	</body>
+</html>
