@@ -1,0 +1,11 @@
+h1.header, /* h1 element of class header */
+h2.header {
+	color: red;
+	font-weight: bold;
+}
+
+/* No headers right now uses this because `h1.header` and `h2.header` are both more specific */
+.header {
+	color: orange;
+	font-weight: 70;
+}

@@ -1,0 +1,111 @@
+html {
+	border: solid 3px; /* Border property is not inherited by default */
+	color: crimson; /* Color property is inherited by all child elements */
+}
+
+footer {
+	color: olive; /* Inherited property `color` is overriding `color` set in html */
+}
+/* Cascading is done on a property declaration basis:  */
+footer {
+	border-top: solid black;
+	border-bottom: solid black;
+}
+
+#footerNote {
+	border: inherit;
+	/* Any property can take one of the following three value to control inheritance
+		inherit: inherit value from (direct) parent element
+		initial: use default value for the property, as specified by specification
+		unset: reset to "natural" value. Equivalent to `inherit` if the property is naturally inherited; otherwise, same as `initial`
+	*/
+}
+
+blockquote {
+	background-color: red !important;
+	/* !important will force override over rules with higher specificity */
+	/* But apparently doesn't override `unset` */
+	
+	border: 2px solid green;
+}
+.fix-this {
+	/* Property `all` sets all properties of this element to one of `inherit`, `initial`, or `unset` */
+	/* Useful for returning the element back to a known state */
+	all: unset;
+}
+
+
+/* Common strategy is to define a generic styling for an element and override individual cases */
+h1, h2 /* A selector list; if any selector is invalid, this entire rule is ignored */{
+	font-size: 2em;
+	color: #000;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h2.small {
+	font-size: 1em;
+}
+h2.bright {
+	color: rebeccapurple;
+}
+
+/* attribute selector that selects HTML elements based on the presence of attributes */
+a[title] {
+	color: deepskyblue;
+}
+/* presence of attribute with specific value */
+a[href="https://example.com"] {
+	color: purple;
+}
+/* pseudo-class selector: states of an element (:hover) */
+a:hover {
+	font-weight: bold;
+}
+/* pseudo-element selector: select part of an element (::first-line) */
+p::first-line /* selects only the first line of text */ {
+	background-color: #e9e9e9;
+}
+/* direct child combinator */
+footer > * /* universal selector selects everything */ {
+	background-color: #d2f0fc;
+}
+
+/* adjacent sibling selector: next element on the same level of a hiearchy */
+.adjacentEx + p {
+	font-size: 1.5em;
+	text-align: center;
+}
+/* general sibling selector: any element on the same level of a hiearchy */
+.siblingEx ~ p {
+	text-indent: 4em;
+	line-height: 2em;
+}
+
+
+
+/* Below two means the same thing; but the latter avoids confusion */
+/* :first-child is a pseudo-class denoting an element which is the first child of another element */
+article :first-child {
+	font-weight: bold;
+}
+article *:first-child { 
+	font-weight: bold;
+}
+
+
+/* Class selector can be compounded; as in, the element is of class notebox and warning */
+.notebox {
+	border: 4px solid #666;
+	padding: .5em;
+}
+.notebox.warning {
+	border-color: orange;
+	font-weight: bold;
+}
+.notebox.danger {
+	border-color: red;
+	font-weight: bold;
+}
+/* Similar to Class selector, ID selector can be combined with element */
+div#unstyledBox {
+	all: unset;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en-CA">
+	<head>
+		<meta charset="utf-8">
+		<title>Jeffrey's HTML Demo Page</title> <!-- browser tab, default bookmark -->
+		<meta name="author" content="Jeffrey Chu Chien Lin"> <!-- name-content pair in metadata elements -->
+		<meta name="description" content="Practice: setting up a navigation menu"> <!-- used by search engine -->
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+
+		<link rel="stylesheet" type="text/css" href="resource/style/html-table.css">
+	</head>
+
+	<body>
+
+		<header>
+			<h1>HTML Table Demo</h1>
+		</header>
+
+		<main>
+			<table>
+				<tr>
+					<td>Hello, table cell.</td>
+					<td>Hey, table cell. How are you?</td>
+				</tr>
+				<tr>
+					<td>Not bad. Weather's nice.</td>
+					<td>Oh yea.... Warm.</td>
+				</tr>
+				<tr>
+					<td>.........</td>
+					<td>Well...this is getting awkward</td>
+				</tr>
+			</table>
+
+			<table>
+				<!-- caption element is useful for summarizing table for screenreaders -->
+				<caption>Pets owned by my family members</caption>
+
+				<tr>
+					<td>&nbsp;</td> <!-- not quite sure what 'non-breaking whitespace' is suppose to do here -->
+					<th scope="colgroup" colspan="4">Pet Name</th> <!-- `colgroup` scope attribute indicates this heading sits over multiple columns -->
+				</tr>
+
+				<!-- Aside from the scope attribute, another way of adding association to a table -->
+				<tr>
+					<td>&nbsp;</td> <!-- not quite sure what 'non-breaking whitespace' is suppose to do here -->
+					<th id="knocky">Knocky</th>
+					<th id="flor">Flor</th>
+					<th id="ella">Ella</th>
+					<th id="juan">Juan</th>
+				</tr>
+				<tr>
+					<th id="breed">Breed</th>
+					<td headers="knocky breed">Jack Russell</td> <!-- headers attribute is a space separated list of header id's -->
+					<td headers="flor breed">Poodle</td>
+					<td headers="ella breed">Streetdog</td>
+					<td headers="juan breed">Cocker Spaniel</td>
+				</tr>
+				<tr>
+					<th	id="age">Age</th>
+					<td headers="knocky age">16</td>
+					<td headers="flor age">9</td>
+					<td headers="ella age">10</td>
+					<td headers="juan age">5</td>
+				</tr>
+				<tr>
+					<th id="owner">Owner</th>
+					<td headers="knocky owner">Mother-in-law</td>
+					<td	headers="flor owner">Me</td>
+					<td headers="ella owner">Me</td>
+					<td headers="juan owner">Sister-in-law</td>
+				</tr>
+				<tr>
+					<th id="habit">Eating Habits</th>
+					<td headers="knocky habit">Eats everyone's leftovers</td>
+					<td headers="flor habit">Nibbles at food</td>
+					<td headers="ella habit">Hearty eater</td>
+					<td headers="juan habit">Will eat till he explodes</td>
+				</tr>
+			</table>
+
+			<table>
+				<colgroup>
+					<!-- only a few styling attributes are available here: border, background, width, visibility -->
+					<col> <!-- column 1 (does not include spanning rows) -->
+					<col style="background-color: yellow"> <!-- column 2 (effects here overriden by CSS) -->
+
+					<!--
+						Consecutive columns can be specified by: (will apply styling to spanning row of the same width)
+						<col style="background-color: yellow" span="2">
+					-->
+				</colgroup>
+				<tr>
+					<th colspan="2">Animals</th>
+				</tr>
+				<tr>
+					<th colspan="2">Hippopotamus</th>
+				</tr>
+				<tr>
+					<th rowspan="2">Horse</th>
+					<td>Mare</td>
+				</tr>
+				<tr>
+					<td>Stallion</td>
+				</tr>
+				<tr>
+					<th colspan="2">Crocodile</th>
+				</tr>
+				<tr>
+					<th rowspan="2">Chicken</th>
+					<td>Hen</td>
+				</tr>
+				<tr>
+					<td>Rooster</td>
+				</tr>
+			</table>
+
+			<!-- thead, tfoot (will render at the bottom), tbody (implicitly there), scope attribute, id and headers attribute -->
+			<table>
+				<caption>How I chose to spend my money</caption>
+					<thead> <!-- Should come right after colgroup element -->
+						<tr>
+							<th scope="col">Purchase</th>
+							<th scope="col">Location</th>
+							<th scope="col">Date</th>
+							<th scope="col">Evaluation</th>
+							<th scope="col">Cost (€)</th>
+						</tr>
+					</thead>
+
+					<tfoot> <!-- Always rendered at the botton of the table -->
+						<tr>
+							<td colspan="4">SUM</td>
+							<td>118</td>
+						</tr>
+					</tfoot>
+
+					<tbody> <!-- Implicitly added if user didn't -->
+						<tr>
+							<th scope="row">Haircut</th>
+							<td>Hairdresser</td>
+							<td>12/09</td>
+							<td>Great idea</td>
+							<td>30</td>
+						</tr>
+						<tr>
+							<th scope="row">Lasagna</th>
+							<td>Restaurant</td>
+							<td>12/09</td>
+							<td>Regrets</td>
+							<td>18</td>
+						</tr>
+						<tr>
+							<th scope="row">Shoes</th>
+							<td>Shoeshop</td>
+							<td>13/09</td>
+							<td>Big regrets</td>
+							<td>65</td>
+						</tr>
+						<tr>
+							<th scope="row">Toothpaste</th>
+							<td>Supermarket</td>
+							<td>13/09</td>
+							<td>Good</td>
+							<td>5</td>
+						</tr>
+					</tbody>
+			</table>
+
+			<!-- table nesting is possible but not encouraged-->
+		
+		</main>
+
+	</body>
+</html>

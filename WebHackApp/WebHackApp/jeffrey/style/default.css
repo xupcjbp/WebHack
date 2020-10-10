@@ -1,6 +1,6 @@
 /* for the whole page */
-html {
-	font-size: 16px;
+html /* selector */ {
+	font-size: 16px; /* declaration with property-value pair */
 	font-family: 'Raleway', sans-serif;
 	background-color: #d5dadb;
 }
@@ -23,6 +23,7 @@ cb {
 	background-color: #bdbdbd;
 	padding: 6px;
 	letter-spacing: 1px;
+	font-size: 0.8em; /* relative to current font-size */
 }
 
 /* class selector */

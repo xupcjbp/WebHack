@@ -7,6 +7,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const frameGuard = require( 'frameguard' );
+// HTTPS setup
+const fs = require('fs')
+const https = require('https')
+
 
 // get all router middleware
 var routes = require('./routes/index');
@@ -32,6 +37,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use( frameGuard( { action: 'DENY' } ) );
 //app.use(express.static(path.join(__dirname, 'public')));
 
 // hooking in router middleware first
@@ -80,8 +86,23 @@ app.use(function (err, req, res, next) {
     });
 });
 
-app.set('port', process.env.PORT || 3000);
-var server = app.listen(app.get('port'), function () {
+/*
+// HTTPS setup
+app.set('port', 443); // https
+const server = https.createServer(
+	{
+		key: fs.readFileSync('webhackapp.key'),
+		cert: fs.readFileSync('webhackapp.cer')
+	},
+	app
+).listen(app.get('port'), function () {
+    debug('Express server listening on port ' + server.address().port);
+});
+*/
+
+
+app.set('port', 80); //http
+const server = app.listen(app.get('port'), function () {
     debug('Express server listening on port ' + server.address().port);
 });
 

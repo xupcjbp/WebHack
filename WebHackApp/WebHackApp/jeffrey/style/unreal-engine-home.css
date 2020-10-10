@@ -1,0 +1,12 @@
+/* for the whole page */
+html {
+	font-size: 16px;
+	font-family: 'Raleway', sans-serif;
+	background-color: #d5dadb;
+}
+
+body {
+	width: 80%;
+	margin: 10px auto;
+	background-image: url( "resource/image/concept-art.jpg" );
+}

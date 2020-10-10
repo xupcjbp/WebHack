@@ -36,6 +36,14 @@ router.get( '/home',
 	}
 );
 
+// get css learning index page
+router.get( '/css/home',
+	function (req, res) {
+		console.log( 'jeffrey: request css learning index page' );
+    	res.sendFile( path.join( res.app.get( 'jeffroot' ), 'page', 'css', 'index.html' ) );
+	}
+);
+
 // get any page
 router.get( /\/.+/,
 	function (req, res) {

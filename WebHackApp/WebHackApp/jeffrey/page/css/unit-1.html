@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en-CA">
+	<head>
+		<meta charset="utf-8">
+		<title>CSS Unit 1</title> <!-- browser tab, default bookmark -->
+		<meta name="author" content="Jeffrey Chu Chien Lin"> <!-- name-content pair in metadata elements -->
+		<meta name="description" content="Learning Cascade Style Sheets"> <!-- used by search engine -->
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Peddana&family=Raleway:wght@100;400&display=swap">
+		<link type="text/css" rel="stylesheet" href="resource/style/unit-1.css">
+	</head>
+
+	<body>
+
+		<nav>
+			<ol>
+				<li><a href="home">Home</a></li>
+				<li><a href="unit-1.html">Unit 1</a></li>
+			</ol>
+		</nav>
+
+		<header>
+			<h1 class="header">CSS Learning Unit 1</h1>
+		</header>
+
+		<main>
+			<article>
+				<p>
+					This is a paragraph.<br>
+					This is the second line of the paragraph.
+				</p>
+			</article>
+
+			<article>
+				<blockquote>
+					<p>This blockquote is styled</p>
+				</blockquote>
+		
+				<blockquote class="fix-this">
+					<p>This blockquote is not styled</p>
+				</blockquote>
+			</article>
+
+			<section>
+				<div class="notebox">
+					This is an informational note.
+				</div>
+				
+				<div class="notebox warning">
+					This note shows a warning.
+				</div>
+				
+				<div class="notebox danger">
+					This note shows danger!
+				</div>
+				
+				<div id="unstyledBox" class="danger">
+					This won't get styled — it also needs to have the notebox class
+				</div>
+			</section>
+
+			<section>
+				<h2 class="adjacentEx">Adjacent sibling example</h2>
+				<p>Adjacent paragraph 1</p>
+				<p>Adjacent paragraph 2</p>
+
+				<h2 class="siblingEx">General sibling example</h2>
+				<p>Sibling paragraph 1<br>Line 2 of paragraph 1</p>
+				<p>Sibling paragraph 2</p>
+			</section>
+		</main>
+
+		<footer>
+			<p id="footerNote">All copyrights to Jeffrey</p>
+		</footer>
+
+	</body>
+</html>

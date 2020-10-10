@@ -10,8 +10,6 @@
 
 		<!-- quite a few metadata and link elements are custom, meaning a custom site (like facebook) will try and read it -->
 
-		<link href="resource/style/default.css" rel="stylesheet"> <!-- point to css -->
-		
 		<!--
 			Point to resources online; in this case, fonts
 			font-family: 'Peddana', serif;
@@ -21,6 +19,7 @@
 			href="https://fonts.googleapis.com/css2?family=Peddana&family=Raleway:wght@100;400&display=swap"
 			rel="stylesheet"
 		>
+		<link href="resource/style/default.css" rel="stylesheet"> <!-- point to css -->
 
 		<!-- `defer` boolean attribute makes sure Javascripts are loaded after HTML elements -->
 		<script src="resource/script/module.mjs" defer></script> <!-- Javascript can go between opening and closing tags -->
@@ -28,6 +27,16 @@
 	</head>
 
 	<body>
+
+		<nav>
+			<ol>
+				<li><a href="navigation/home.html" target="_blank">Navigation demo</a></li>
+				<li><a href="html-table/index.html" target="_blank">HTML table demo</a></li>
+				<li><a href="css/home" target="_blank">CSS Learning</a></li>
+				<!-- href starting with a forward slash will be appended to just the domain name -->
+				<!-- href without a leading forward slash will use the current path -->
+			</ol>
+		</nav>
 
 		<h1 id="top"><span lang="ja">こにちは</span>!</h1> <!-- h1 to h6 are available -->
 		<!-- span element is semanticless -->
@@ -81,9 +90,13 @@
 					title="Site Home"
 					target="_blank"
 				> <!-- target attribute allows page to open in new tab -->
-					<img src="resource/image/magnifying-glasss.png" alt='' width="512" height="512">
-					<!-- If image link is broken and `alt` attribute is empty, width and height is what the browser uses for lay the image out. -->
-					<!-- `img` element being laid out allows it to function as a hyperlink; otherwise, the link is gone entirely. -->
+					<figure>
+						<img src="resource/image/magnifying-glass.png" alt='A magnifying glass icon' width="512" height="512">
+						<!-- If image link is broken and `alt` attribute is empty, width and height is what the browser uses for lay the image out. -->
+						<!-- `img` element being laid out allows it to function as a hyperlink; otherwise, the link is gone entirely. -->
+						<figcaption>The image choice here has no apparent reason; used as a hyperlink to home</figcaption>
+					</figure>
+					<!-- A figure element can contain any number of content as a standalone unit -->
 				</a>
 			</p>
 
@@ -97,9 +110,6 @@
 				<input type="text" disabled> <!-- boolean attribute -->
 			</p>
 
-			<p>
-				<a href="navigation/home.html" target="_blank">Navigation demo</a>
-			</p>
 		</div>
 
 	</body>

@@ -1,0 +1,66 @@
+/* Example of an @<rule> */
+@import 'css-learning2.css'; /* imports one CSS into another */
+
+/* CSS declaration block paired with selector is CSS ruleset */
+p, li { /* everything between bracely brackets is CSS declaration block */
+	color: peru; /* CSS declaration*/
+	font-size: inherit;
+}
+
+li {
+	list-style-type: circle; /* specifying the bulletin icon */
+}
+li em { /* decendent combinator: select `em` elements nested (doesn't have to be directly under) inside `li` element */
+	color: rebeccapurple;
+}
+
+h2 + p { /* adjacent sibling combinator: select `p` elements right after `h2` elements with the same hiearchy */
+	font-size: 200%;
+}
+
+a:link { /* select based on the state */
+	color: pink;
+}
+a:visited {
+	color: green;
+}
+a:hover {
+	text-decoration: none; /* will remove the default underlining from default styles */
+}
+
+body h2 + p .special { /* selector can be combined */
+	color: yellow;
+	background-color: black;
+	padding: 5px;
+}
+
+.test {
+	color: slateblue;
+}
+
+footer {
+	border: 1px solid; /* shorthand: border-width, border-color, border-style */
+	/* other shorthand properties include margin, padding, background, font */
+	/* CAUTION: when using shorthands, values left out are RESET to initial value and cascade previous values */
+
+	/* Cascading offers the flexibility of using newer CSS features (like function in this case) while keeping a "default" value */
+	/* User agents that don't support CSS function will simply ignore the second width declaration */
+	width: 80%;
+	width: calc( 90% - 120px ); /* CSS functions? */
+
+	font-size: larger;
+	transform: rotate3d( 0, 0, 1, -5deg );
+}
+
+html {
+	background-image: linear-gradient(to right, rgba(255,255,255,0.5), rgba(0,0,0,0.5));
+}
+@media ( max-width: 960px ) { /* another @<rule> example for media queries (selective application with conditional logic) */
+	html {
+		background-image: linear-gradient(to left, rgba(255,255,255,0.5), rgba(0,0,0,0.5));
+	}
+}
+
+span.decorated {
+	text-decoration: underline wavy red;
+}

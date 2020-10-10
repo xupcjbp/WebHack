@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en-CA">
+	<head>
+		<meta charset="utf-8">
+		<title>Jeffrey's CSS Learning Page</title> <!-- browser tab, default bookmark -->
+		<meta name="author" content="Jeffrey Chu Chien Lin"> <!-- name-content pair in metadata elements -->
+		<meta name="description" content="Learning Cascade Style Sheets"> <!-- used by search engine -->
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Peddana&family=Raleway:wght@100;400&display=swap"
+		>
+		<link type="text/css" rel="stylesheet" href="resource/style/css-learning.css"> <!-- external stylesheet -->
+		<!-- Internal Stylesheet; only affects this file -->
+		<style>
+			.test {
+				color: forestgreen; /* Cascades over `.test` in css-learning.css  */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<nav>
+			<ol>
+				<li><a href="home">Home</a></li>
+				<li><a href="unit-1.html">Unit 1</a></li>
+			</ol>
+		</nav>
+
+		<header>
+			<h1 class="header">CSS Learning Home Page</h1>
+		</header>
+
+		<main>
+			<article>
+				<h2 class="header">I am a level one heading</h2>
+
+				<p>This is a paragraph of text. In the text is a <span class="special">span element</span> and also a <a href="http://example.com">link</a>.</p>
+
+				<p>This is the <span class="decorated">second paragraph</span>. It contains an <em>emphasized</em> element.</p>
+
+				<ul>
+					<li>Item one</li>
+					<li style="color: blue; list-style-type: square;">Item two</li> <!-- Inline Stylesheet; only affects one element -->
+					<li>Item <em>three</em></li>
+				</ul>
+
+				<p>This is a <span class="test">test sentence</span></p>
+
+			</article>
+		</main>
+
+		<footer>
+			<p>All copyrights to Jeffrey</p>
+		</footer>
+
+	</body>
+</html>

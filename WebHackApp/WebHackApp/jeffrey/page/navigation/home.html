@@ -7,6 +7,8 @@
 		<meta name="author" content="Jeffrey Chu Chien Lin"> <!-- name-content pair in metadata elements -->
 		<meta name="description" content="Practice: setting up a navigation menu"> <!-- used by search engine -->
 		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+
+		<script src="resource/script/home-page.js" defer></script>
 	</head>
 
 	<body>
@@ -27,6 +29,75 @@
 
 		<!-- superscript and subscript -->
 		<p>Hello, I'm Jeffrey Lin. My birthday<sub>TM</sub> is on July 28<sup>th</sup>.</p>
+
+		<section>
+			<!-- controls attribute uses the browser built-in media player -->
+			<!-- width and height attribute can be overridden through CSS -->
+			<!-- muted attribute starts the video muted -->
+			<!-- poster attribute specifies a splash screen before video plays -->
+			<!-- preload attribute controls frame buffering -->
+			<video id="videoDemo" controls muted
+				width="512"
+				height="512"
+				poster="resource/image/magnifying-glass.png"
+				preload="auto"
+			>
+				<!-- include multiple source elements to support different platforms; mp4 and webm is a good combo -->
+				<source src="resource/image/test-video.mp4" type="video/mp4">
+				<!-- subtitles are for a different language; captions are for translating visual into text -->
+				<track kind="captions" src="resource/image/test-video-en.vtt" srclang="en">
+				<track kind="subtitles" src="resource/image/test-video-ch.vtt" srclang="ch">
+
+				<!-- If browser can't show the video, fallback content enclosed between tags are shown instead -->
+				<p>
+					The video is just something random I shot on my phone to test video embedding.
+					If your browser doesn't support embedding, here is the <a href="resource/image/test-video.mp4" download="TestVideo.mp4">link to the video.</a>
+				</p>
+			</video> <!-- inline element, like img -->
+			<p><button id="videoReload">Reload video</button></p>
+		</section>
+
+		<section>
+			<!-- Does not support width and height attribute -->
+			<audio id="audioDemo" controls>
+				<source src="resource/image/test-audio.aac" type="audio/aac">
+
+				<p>
+					Same as the video, I recorded something random on my phone to test audio embedding.
+					If your browser doesn't support embedding, here is the <a href="resource/image/test-audio.aac" download="TestAudio.aac">link to the video.</a>
+				</p>
+			</audio> <!-- inline element, like video and img -->
+		</section>
+
+		<!-- following three sections uses iframe to embed other pages -->
+		<section>
+			<!-- allowfullscreen attribute enables the content to be fullscreened using Full Screen API -->
+			<!-- width, height, and frameborder are for styling; preferrably done through CSS -->
+			<iframe width="960" height="540" frameborder="0" allowfullscreen
+				src="https://www.youtube.com/embed/p96ojVdRKpI"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+			</iframe>
+			<!-- similar to video and audio, fallback content is allowed here as well -->
+			<p>
+				If embedding doesn't work, here is the <a href="https://www.youtube.com/embed/p96ojVdRKpI">link to music I like on YouTube.</a>
+			</p>
+		</section>
+
+		<!-- It is ideal to set src attribute in Javascript to reduce the initial load time of the page -->
+		<section>
+			<iframe width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1400.5922769587578!2d-75.72350274704674!3d45.405617878439564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0f70aa773b51%3A0x6e4d65543a000799!2sSnowed%20In%20Studios!5e0!3m2!1sen!2sca!4v1601965645733!5m2!1sen!2sca">
+			</iframe>
+		</section>
+
+		<section>
+			<!-- sandbox attribute controls security settings; used as below turns on all security settings -->
+			<!-- sandbox controls whether embedded content can execute scripts -->
+			<iframe width="600" height="450" frameborder="0" style="border:0;" sandbox
+				src="http://localhost/jeffrey/home">
+			</iframe>
+			<!-- Current nodejs server is configured with X-frame option to disable embedding; so this won't work -->
+		</section>
 
 	</body>
 </html>
