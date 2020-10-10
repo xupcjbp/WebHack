@@ -45,8 +45,14 @@ router.get('/display', function (req,res)
     //sending request and getting response
     axios(config).
     then(function (response) {
-        console.log(response.data.item.name);
-        res.send(response.data.item.name);
+        if (response.status == 200) {
+            console.log(response.data.item.name);
+            res.send(response.data.item.name);
+        }
+        else {
+            res.send("status code = " + response.status);
+        }
+        
     })
     .catch(error => {
         console.error(error);
@@ -83,7 +89,7 @@ router.get("/callback", function (req, res) {
         },
         headers: {
             'Authorization': 'Basic ' + (new Buffer.from(
-                "50f9c65dd42847fba713f6506951ef00" + ':' + "0c1de1e3b11142bf8b077423c03755d8"
+                process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
             ).toString('base64'))
         },
     };
