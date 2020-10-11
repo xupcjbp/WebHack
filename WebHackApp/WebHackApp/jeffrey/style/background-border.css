@@ -1,0 +1,92 @@
+section {
+	margin: 50px 0px;
+}
+
+section[id="background1"] h2 {
+	width: fit-content;
+	padding: 5px;
+
+	border-color: black;
+	border-left-width: 8px;
+	border-left-style: double;
+	border-bottom-width: 2px;
+	border-bottom-style: dashed;
+
+	/*
+		Will be overlaid if `background-image` property was supplied
+		Covering padding and border
+	*/
+	background-color: cadetblue;
+}
+section[id="background1"] p {
+	padding: 1em;
+	height: 300px;
+	width: 500px;
+	overflow: hidden scroll; /* horizontal vertical */
+	border: 2px solid black;
+
+	background-image: url( "resource/image/favicon.png" );
+	background-repeat: no-repeat;  /* repeat (default), repeat-x, repeat-y */
+	background-position: top 40px left 10%; /* specified values away from string-specified locaiton */
+	/* NOTE: context of x and y depends on the attachment scheme
+		background-position-x: left;
+		background-position-y: 60%;
+	*/
+	background-attachment: fixed; /* position is the user agent's rendering viewport */
+	/*
+		scroll: position is the the container's box; subjected to page scrolling only and not container
+		local: position is the the container's box; subjected to page and container scrolling
+	*/
+}
+
+
+section[id="background2"] p {
+	padding: 1em;
+	height: 200px;
+	width: 500px;
+	overflow: hidden scroll; /* horizontal vertical */
+	border: 2px solid black;
+
+	background-image:
+		/* top-most image */
+		url( "resource/image/concept-art.jpg" ),
+		radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(216,177,210,1) 36%, rgba(194,180,217,1) 65%, rgba(148,187,233,1) 100%)
+		/* bottom-most image */
+	;
+	background-size:
+		contain,
+		cover;
+	background-blend-mode:
+		multiply,
+		normal;
+
+	background-position: center center;
+	background-repeat: no-repeat; /* values are cycled from unspecified images */
+	background-attachment: scroll; /* values are cycled from unspecified images */
+}
+
+
+section[id="borderProp"] h2 {
+	width: fit-content;
+	padding: 3px;
+
+	border-color: black;
+	border-left-width: 8px;
+	border-left-style: double;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+}
+section[id="borderProp"] p {
+	width: 500px;
+	height: 200px;
+	padding: 30px;
+
+	box-sizing: border-box;
+
+	border-color: steelblue;
+	border-width: 3px;
+	border-style: dashed;
+
+	border-radius: 1em;
+	border-top-right-radius: 10% 30%; /* horizontal vertical */
+}

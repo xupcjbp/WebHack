@@ -1,0 +1,71 @@
+section {
+	margin: 50px 0px;
+}
+section h2 {
+	width: fit-content;
+	padding: 5px;
+
+	border-color: black;
+	border-left-width: 8px;
+	border-left-style: double;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+}
+
+section[id="direction"] .horizontal {
+	padding-block-start: 5px;
+	padding-block-end: 5px;
+	padding-inline-start: 20px;
+	padding-inline-end: 20px;
+
+	block-size: 200px;
+	inline-size: 400px;
+
+	border-block-start: 2px dotted black;
+	border-inline-start: 4px dashed black;
+	border-block-end: 6px solid black;
+	border-inline-end: 8px double black;
+
+	margin-block-start: 10px;
+	margin-block-end: 10px;
+	margin-inline-start: 10px;
+	margin-inline-end: 10px;
+
+	background-image: url( "resource/image/favicon.png" );
+	background-repeat: no-repeat;
+	/* logical value: top(block-start), right(inline-end), bottom(block-end), left(inline-start) */
+	background-position: top 5px left 5px; /* not all properties support logical value; `background-position` doesn't */
+	background-attachment: scroll;
+
+	writing-mode: horizontal-tb; /* block flows horizontally; inline flows vertically */
+}
+
+section[id="direction"] .vertical {
+	padding-block-start: 5px;
+	padding-block-end: 5px;
+	padding-inline-start: 20px;
+	padding-inline-end: 20px;
+
+	block-size: 200px; /* logical width */
+	inline-size: 400px; /* logical height */
+
+	border-block-start: 2px dotted black;
+	border-inline-start: 4px dashed black;
+	border-block-end: 6px solid black;
+	border-inline-end: 8px double black;
+
+	margin-block-start: 10px;
+	margin-block-end: 10px;
+	margin-inline-start: 10px;
+	margin-inline-end: 10px;
+
+	background-image: url( "resource/image/favicon.png" );
+	background-repeat: no-repeat;
+	/* logical value: top(block-start), right(inline-end), bottom(block-end), left(inline-start) */
+	background-position: top 5px left 5px; /* not all properties support logical value; `background-position` doesn't */
+	background-attachment: scroll;
+
+	/* sets the direction of block-level elements, which changes the flow of inline elements as well */
+	/* block flows vertically; inline flows horizontally */
+	writing-mode: vertical-rl; /* vertical-lr for left to right flow */
+}

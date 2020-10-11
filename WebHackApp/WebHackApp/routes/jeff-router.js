@@ -49,7 +49,7 @@ router.get( /\/.+/,
 	function (req, res) {
 		let tmp = path.join( res.app.get( 'jeffroot' ), 'page', req.path );
 		console.log( 'jeffrey: request page at ' + tmp );
-    	res.sendFile( tmp );
+		res.sendFile( tmp );
 	}
 );
 

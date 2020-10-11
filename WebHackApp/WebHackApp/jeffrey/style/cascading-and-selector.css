@@ -52,10 +52,24 @@ h2.bright {
 a[title] {
 	color: deepskyblue;
 }
+
 /* presence of attribute with specific value */
 a[href="https://example.com"] {
 	color: purple;
 }
+/*
+	A few version this exists
+	~= following value is matched exactly, or is contained in the list of attributes
+	|= following value is matched exactly, or is the beginning of the attribute value followed by a HYPHEN
+	^= following value is the begining of the attribute value
+	$= following value is the ending of the attribute value
+	*= following value is a substring of the attribute value
+*/
+/* attribute selector paired with class to select "sub"-class */
+div[class^="notebox" i] { /* the ending `i` indicates case-insensitive string match */
+	color: black;
+}
+
 /* pseudo-class selector: states of an element (:hover) */
 a:hover {
 	font-weight: bold;
@@ -74,7 +88,7 @@ footer > * /* universal selector selects everything */ {
 	font-size: 1.5em;
 	text-align: center;
 }
-/* general sibling selector: any element on the same level of a hiearchy */
+/* general sibling selector: select all instances of latter element which comes after the former element on the same level of a hiearchy */
 .siblingEx ~ p {
 	text-indent: 4em;
 	line-height: 2em;
@@ -90,6 +104,15 @@ article :first-child {
 article *:first-child { 
 	font-weight: bold;
 }
+/* pseudo-class
+	:first-child
+	:last-child
+	:only-child
+*/
+/* dynamic pseudo-class
+	:hover
+	:focus
+*/
 
 
 /* Class selector can be compounded; as in, the element is of class notebox and warning */
@@ -108,4 +131,37 @@ article *:first-child {
 /* Similar to Class selector, ID selector can be combined with element */
 div#unstyledBox {
 	all: unset;
+}
+/* `::after` pseudo-element to extra content as a child of the selected element */
+div[class^="notebox"]::after {
+	content: " ↻";
+}
+
+.arrow_box {
+	position: relative;
+	background: #88b7d5;
+	border: 4px solid #c2e1f5;
+}
+/* Generated content: using `::after` and `::before` with empty string */
+.arrow_box::after, .arrow_box::before {
+	content: ""; /* property special for `::after` and `::before` pseudo element */
+
+	/* apply any CSS styling as if it was an element */
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	position: absolute;
+	pointer-events: none;
+}
+.arrow_box::after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #88b7d5;
+	border-width: 30px;
+	margin-left: -30px;
+}
+.arrow_box::before {
+	border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: #c2e1f5;
+	border-width: 36px;
+	margin-left: -36px;
 }

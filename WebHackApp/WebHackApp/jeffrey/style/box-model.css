@@ -1,0 +1,119 @@
+section {
+	margin: 50px 0px;
+}
+
+section[id="normalFlow"] p,
+section[id="normalFlow"] ul {
+	border: 2px solid rebeccapurple;
+	padding: 0.5em;
+}
+section[id="normalFlow"] .block,
+section[id="normalFlow"] li {
+	border: 2px solid blue;
+	padding: .5em;
+}
+section[id="normalFlow"] ul {
+  display: flex;
+  list-style: none;
+}
+section[id="normalFlow"] .block {
+	display: block;
+}
+
+
+section[id="flexFlow"] p,
+section[id="flexFlow"] ul {
+	border: 2px solid rebeccapurple;
+}
+section[id="flexFlow"] span,
+section[id="flexFlow"] li {
+	border: 2px solid blue;
+}
+section[id="flexFlow"] ul {
+	display: inline-flex;
+	list-style: none;
+	padding: 0;
+}
+section[id="flexFlow"] .inline {
+	display: inline;
+}
+
+
+section[id="boxModel"] .stdBox,
+section[id="boxModel"] .altBox {
+	width: 600px;
+	height: 400px;
+	margin: 10px;
+	padding: 25px;
+	border: 5px solid black;
+}
+section[id="boxModel"] .altBox {
+	box-sizing: border-box; /* calculate content size by subtracting border and padding from width and height */
+}
+
+
+section[id="negMargin"] {
+	padding-bottom: 15px;
+}
+section[id="negMargin"] .container,
+section[id="negMargin"] .innerBox {
+	width: 400px;
+	height: 200px;
+	border-style: solid;
+	border-width: 5px;
+	background-color: snow;
+}
+section[id="negMargin"] .container > .innerBox {
+		margin: 15px -15px -15px 15px;
+}
+
+
+section[id="marginCollapse"] .container,
+section[id="marginCollapse"] .block1,
+section[id="marginCollapse"] .block2 {
+	border-style: solid;
+	border-width: 5px;
+	padding: 5px; /* padding cannot be negative */
+}
+section[id="marginCollapse"] .block1,
+section[id="marginCollapse"] .block2 {
+	width: 300px;
+	height: 100px;
+	margin: 0px;
+}
+/* The below two margin values collapses with one another: max(+, +) or sum(+, -) */
+section[id="marginCollapse"] .block1 {
+	margin-bottom: 30px;
+}
+section[id="marginCollapse"] .block2 {
+	margin-top: 50px;
+}
+
+
+section[id="inlineBox"] .inlineAttr p {
+	font-size: medium;
+	border: solid 4px;
+	width: 200px;
+}
+section[id="inlineBox"] .inlineAttr span {
+	margin: 20px; /* vertical portion is rendered without pushing other elements */
+	padding: 20px; /* vertical portion is rendered without pushing other elements */
+	width: 80px; /* IGNORED */
+	height: 50px; /* IGNORED */
+	background-color: lightblue;
+	border: 2px solid blue; /* vertical portion is rendered without pushing other elements */
+}
+section[id="inlineBox"] .inlineBlockAttr p {
+	font-size: medium;
+	border: solid 4px;
+	width: 200px;
+}
+section[id="inlineBox"] .inlineBlockAttr span {
+	display: inline-block;
+	margin: 10px; /* vertical portion is respected */
+	padding: 10px; /* vertical portion is respected */
+	width: 80px; /* Respected */
+	height: 50px; /* Respected */
+	background-color: lightblue;
+	border: 2px solid blue; /* vertical portion is respected */
+}

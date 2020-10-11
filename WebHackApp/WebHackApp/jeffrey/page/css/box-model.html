@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en-CA">
+	<head>
+		<meta charset="utf-8">
+		<title>CSS Box Model</title>
+		<meta name="author" content="Jeffrey Chu Chien Lin">
+		<meta name="description" content="Learning Cascade Style Sheets">
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Peddana&family=Raleway:wght@100;400&display=swap">
+		<link type="text/css" rel="stylesheet" href="resource/style/box-model.css">
+	</head>
+
+	<body>
+
+		<nav>
+			<ol>
+				<li><a href="home">Home</a></li>
+				<li><a href="cascading-and-selector.html">Cascading and Selectors</a></li>
+				<li><a href="box-model.html">CSS Box Model</a></li>
+				<li><a href="background-border.html">CSS Background and Border</a></li>
+				<li><a href="text-direction.html">CSS Text Direction</a></li>
+			</ol>
+		</nav>
+
+		<header>
+			<h1 class="header">CSS Box Model</h1>
+		</header>
+
+		<main>
+			<section id="normalFlow">
+				<h2>Normal flow example</h2>
+				<p>I am a paragraph. A short one.</p>
+				<ul>
+					<li>Item One</li>
+					<li>Item Two</li>
+					<li>Item Three</li>
+				</ul>
+				<p>I am another paragraph. Some of the <span class="block">words</span> have been wrapped in a <span>span element</span>.</p>
+			</section>
+
+			<section id="flexFlow">
+				<h2>Flex flow example</h2>
+				<p>
+					I am a paragraph. Some of the
+					<span>words</span> have been wrapped in a
+					<span>span element</span>.
+				</p>
+				<ul>
+					<li>Item One</li>
+					<li>Item Two</li>
+					<li>Item Three</li>
+				</ul>
+				<p class="inline">I am a paragraph. A short one.</p>
+				<p class="inline">I am another paragraph. Also a short one.</p>
+			</section>
+
+			<section id="boxModel">
+				<h2>Alternative Box model</h2>
+				<p class="stdBox">This is a standard box</p>
+				<p class="altBox">This is an alternative box</p>
+			</section>
+
+			<section id="negMargin">
+				<h2>Negative margins</h2>
+				<div class="container">
+					<div class="innerBox">Change my margin.</div>
+				</div>
+			</section>
+
+			<section id="marginCollapse">
+				<h2>Margin Collapsing</h2>
+				<div class="container">
+					<p class="block1">Block 1</p>
+					<p class="block2">Block 2</p>
+				</div>
+			</section>
+
+			<section id="inlineBox">
+				<article class="inlineAttr">
+					<h2>Inline Attributes</h2>
+					<p>
+						I am a paragraph and this is a <span>span</span> inside that paragraph. A span is an inline element and so does not respect width and height.
+					</p>
+				</article>
+				<article class="inlineBlockAttr">
+					<h2>Inline Attributes</h2>
+					<p>
+						I am a paragraph and this is a <span>span</span> inside that paragraph. A span is an inline element and so does not respect width and height.
+					</p>
+				</article>
+			</section>
+		</main>
+
+		<footer>
+			<p id="footerNote">All copyrights to Jeffrey</p>
+		</footer>
+
+	</body>
+</html>
