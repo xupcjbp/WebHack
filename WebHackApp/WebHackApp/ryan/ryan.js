@@ -14,10 +14,15 @@ const payload = {
     "redirect_uri": "http://192.168.0.15:3000/ryan/callback", "scope": scopeList
 };
 const AuthBaseUrl = "https://accounts.spotify.com/authorize?";
-const frontendServer = "http://192.168.0.15:3000/ryan/display"
+const frontendServer = "http://192.168.0.15:3000/ryan/display";
 
-/* GET Ryan page. */
-router.get('/', function (req, res) {
+let currentToken = {access_token: "", expires_in: 0};
+
+
+
+
+/* GET Ryan home page. */
+router.get('/home', function (req, res) {
     res.sendFile(__dirname + '/ryan.html');
 });
 
@@ -25,7 +30,8 @@ router.get('/display', function (req,res)
 {
     let requrl = new URL(req.url, `http://${req.headers.host}`);
     let urlparams = requrl.searchParams;
-    let token = urlparams.get("access_token");
+    currentToken.access_token = urlparams.get("access_token");
+    currentToken.expires_in = urlparams.get("access_token");
 
 
     
@@ -38,7 +44,7 @@ router.get('/display', function (req,res)
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: 'Bearer ' + token
+            Authorization: 'Bearer ' + currentToken.access_token
         },
     };
 
@@ -64,8 +70,14 @@ router.get('/display', function (req,res)
 });
 
 router.get("/spotify", function (req, res) {
-    
-    res.redirect(getAuthUrl(payload, AuthBaseUrl).toString());
+    if (currentToken.access_token == "") {
+        res.redirect(getAuthUrl(payload, AuthBaseUrl).toString());
+        
+    }
+    else {
+        let newUrl = frontendServer +"?"+ querystring.stringify(currentToken);
+        res.redirect(newUrl);
+    }
     res.end();
 });
 
@@ -109,6 +121,10 @@ router.get("/callback", function (req, res) {
     })
 
 })
+
+router.get(/\/.+/, function (req, res) {
+    res.sendFile(__dirname + "/resources"+ req.path);
+});
 
 function getAuthUrl(dict, AuthBaseUrl) {
     var urlparam = querystring.stringify(dict);

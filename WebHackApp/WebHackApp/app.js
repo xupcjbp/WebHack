@@ -26,7 +26,7 @@ var ryan = require('./ryan/ryan');
 var app = express();
 
 // view directory remapping setup
-app.set( 'jeffroot', path.join( __dirname, 'jeffrey' ) );
+app.set( 'jeffroot', path.join( __dirname, 'jeffrey' ));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
