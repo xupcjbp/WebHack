@@ -22,8 +22,8 @@
 		<link href="resource/style/default.css" rel="stylesheet"> <!-- point to css -->
 
 		<!-- `defer` boolean attribute makes sure Javascripts are loaded after HTML elements -->
-		<script src="resource/script/module.mjs" defer></script> <!-- Javascript can go between opening and closing tags -->
-		<script src="resource/script/main.mjs" defer></script>
+		
+		<script type="module" src="resource/script/main.mjs" defer></script>
 	</head>
 
 	<body>
@@ -41,7 +41,8 @@
 		<h1 id="top"><span lang="ja">こにちは</span>!</h1> <!-- h1 to h6 are available -->
 		<!-- span element is semanticless -->
 
-		<p class="label"> <!-- Browsers apply default spacing to paragraph elements -->
+		<!-- an element can beloing to a list of classes if attribute `class` is assigned to a list of space-separated values -->
+		<p class="label important"> <!-- Browsers apply default spacing to paragraph elements -->
 			<em>From the creator of whatever the <strong>f**k</strong> this is...</em> <!-- italics and bold: should NOT be used for styling -->
 		</p>
 

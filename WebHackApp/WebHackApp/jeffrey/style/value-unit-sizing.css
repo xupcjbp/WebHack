@@ -1,0 +1,153 @@
+section {
+	margin: 50px 0px;
+}
+section h2 {
+	width: fit-content;
+	padding: 5px;
+
+	border-color: black;
+	border-left-width: 8px;
+	border-left-style: double;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+}
+html {
+	font-size: 18px;
+}
+
+
+section[id="unit"] .wrapper {
+	font-size: 1.5em;
+}
+section[id="unit"] .wrapper * {
+	border: 3px skyblue solid;
+	margin: 1rem 0px;
+}
+section[id="unit"] .px {
+	inline-size: 200px;
+}
+section[id="unit"] .vw {
+	inline-size: 10vw; /* viewport width */
+}
+section[id="unit"] .em {
+	/* For typography properties, value is relative to parent font-size */
+	/* For other properties, value is relative to font-size of this element */
+	inline-size: 10em;
+}
+
+
+section[id="relative"] .ems li {
+	font-size: 1.3em;
+}
+section[id="relative"] .rems li {
+	font-size: 1.3rem;
+}
+
+
+section[id="percent"] .wrapper,
+section[id="percent"] .box {
+	border: 5px solid rebeccapurple;
+}
+section[id="percent"] .box {
+	margin: 10px;
+}
+section[id="percent"] .wrapper {
+	padding: 10px;
+	width: 600px;
+}
+section[id="percent"] .px {
+	width: 200px;
+}
+section[id="percent"] .percent {
+	width: 40%;
+}
+section[id="percent"] li {
+	font-size: 90%;
+}
+
+
+section[id="opacity"] .wrapper {
+	background-image: url( "resource/image/favicon.png" );
+	block-size: 300px;
+	inline-size: 300px;
+
+	/*
+		Without padding, margin of class `wrapper` will collapse with margin of class `box`
+		Apparently, having a border on .wrapper solves the issue too
+	*/
+	padding: 1px;
+}
+section[id="opacity"] .box1 {
+	padding: 20px;
+	border: 4px darkblue solid;
+	background-color: skyblue;
+	inline-size: fit-content;
+
+	margin-inline-start: auto; margin-inline-end: auto; /* centers the element horizontally */
+	margin-block-start: calc( 50% - 1em - 24px ); /* 24px = padding-block-start + border-block-start-width */
+
+	opacity: 0.7;
+}
+
+section[id="opacity"] .box2 {
+	padding: 20px;
+	background-color: hsla(180, 61%, 80%, 0.7);
+	border-radius: 1em;
+	inline-size: fit-content;
+
+	margin-inline-start: auto; margin-inline-end: auto; /* centers the element horizontally */
+	margin-block-start: 10%;
+}
+
+
+section[id="percentMargin"] {
+	block-size: fit-content;
+	inline-size: 500px;
+}
+section[id="percentMargin"] .box {
+	border: 5px solid darkblue;
+	width: 300px;
+
+	margin: 10%; /* with respect to inline-size of parent */
+	padding: 10%; /* also with respect to inline-size of parent */
+}
+
+
+section[id="responsive"] article {
+	margin-block-start: 15px;
+}
+section[id="responsive"] .textEx {
+	display: flex;
+	align-items: flex-start; /* required so that children element block height is not forced to re-align */
+}
+section[id="responsive"] .textEx .minh {
+	margin: 10px;
+	border: 5px solid darkblue;
+	inline-size: 150px;
+
+	/*
+		If content overflows 150px in block direction, box will adjust to fit content.
+		If content doesn't excede 150px, box will take up 150px.
+	*/
+	min-block-size: 150px;
+}
+section[id="responsive"] .smallImageEx .box,
+section[id="responsive"] .largeImageEx .box {
+	inline-size: 300px;
+	border: 2px solid hsla(335, 42%, 62%, 0.7);
+}
+section[id="responsive"] .largeImageEx .maxw,
+section[id="responsive"] .smallImageEx .maxw {
+	/* inline-size and block-size only grows as big as parent's */
+	max-inline-size: 100%;
+	max-block-size: 100%;
+}
+
+
+.heroBox {
+	inline-size: 100vw;
+}
+.heroImage {
+	max-inline-size: 100%;
+	max-block-size: 100%;
+}

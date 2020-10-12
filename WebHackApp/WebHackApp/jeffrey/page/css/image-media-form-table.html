@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en-CA">
+	<head>
+		<meta charset="utf-8">
+		<title>CSS Styling: Image, Media, Form, Table</title>
+		<meta name="author" content="Jeffrey Chu Chien Lin">
+		<meta name="description" content="Learning Cascade Style Sheets">
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Peddana&family=Raleway:wght@100;400&display=swap">
+		<link type="text/css" rel="stylesheet" href="resource/style/image-media-form-table.css">
+	</head>
+
+	<body>
+
+		<nav>
+			<ol>
+				<li><a href="home">Home</a></li>
+				<li><a href="cascading-and-selector.html">Cascading and Selectors</a></li>
+				<li><a href="box-model.html">CSS Box Model</a></li>
+				<li><a href="background-border.html">CSS Background and Border</a></li>
+				<li><a href="text-direction-overflowing.html">CSS Text Direction and Overflowing</a></li>
+				<li><a href="value-unit-sizing.html">CSS Value, Units, and Sizing</a></li>
+				<li><a href="image-media-form-table.html">CSS Styling: Image, Media, Form, Table</a></li>
+			</ol>
+		</nav>
+
+		<header>
+			<h1 class="header">CSS Styling: Image, Media, Form, Table</h1>
+		</header>
+
+		<main>
+			<section id="maxmin">
+				<h2>max/min property &lt;img&gt; and &lt;video&gt;</h2>
+				<img src="resource/image/concept-art.jpg">
+				<video controls muted>
+					<source type="video/mp4" src="resource/image/test-video.mp4">
+				</video>
+			</section>
+
+			<section id="fit">
+				<h2>object-fit property &lt;img&gt; and &lt;video&gt;</h2>
+				<img src="resource/image/concept-art.jpg">
+				<video controls muted>
+					<source type="video/mp4" src="resource/image/test-video.mp4">
+				</video>
+			</section>
+
+			<section id="layout">
+				<h2>replaced element default behaviour in layout doesn't stretch</h2>
+				<div class="wrapper">
+					<img src="resource/image/favicon.png">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</section>
+
+			<section id="textInput">
+				<h2>Styling text-based form</h2>
+				<form>
+					<div><label for="name">Name</label>
+					<input type="text" id="name"></div>
+					<div><label for="email">Email</label>
+					<input type="email" id="email"></div>
+
+					<div class="buttons"><input type="submit" value="Submit"></div>
+				</form>
+			</section>
+		</main>
+
+		<footer>
+			<p id="footerNote">All copyrights to Jeffrey</p>
+		</footer>
+
+	</body>
+</html>

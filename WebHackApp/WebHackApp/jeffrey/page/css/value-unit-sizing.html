@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en-CA">
+	<head>
+		<meta charset="utf-8">
+		<title>CSS Value, Units, and Sizing</title>
+		<meta name="author" content="Jeffrey Chu Chien Lin">
+		<meta name="description" content="Learning Cascade Style Sheets">
+		<link rel="shortcut icon" sizes="144x144" href="resource/image/favicon.png">
+
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Peddana&family=Raleway:wght@100;400&display=swap">
+		<link type="text/css" rel="stylesheet" href="resource/style/value-unit-sizing.css">
+	</head>
+
+	<body>
+
+		<div class="heroBox"><img class="heroImage" src="resource/image/concept-art.jpg"></div>
+
+		<nav>
+			<ol>
+				<li><a href="home">Home</a></li>
+				<li><a href="cascading-and-selector.html">Cascading and Selectors</a></li>
+				<li><a href="box-model.html">CSS Box Model</a></li>
+				<li><a href="background-border.html">CSS Background and Border</a></li>
+				<li><a href="text-direction-overflowing.html">CSS Text Direction and Overflowing</a></li>
+				<li><a href="value-unit-sizing.html">CSS Value, Units, and Sizing</a></li>
+			</ol>
+		</nav>
+
+		<header>
+			<h1 class="header">CSS Value, Units, and Sizing</h1>
+		</header>
+
+		<main>
+			<section id="unit">
+				<h2>Different units</h2>
+				<div class="wrapper">
+					<div class="box px">I am 200px wide</div>
+					<div class="box vw">I am 10vw wide</div>
+					<div class="box em">I am 10em wide</div>
+				</div>
+			</section>
+
+			<section id="relative">
+				<h2>Unit em versus rem</h2>
+				<ul class="ems">
+					<li>One</li>
+					<li>Two</li>
+					<li>Three
+						<ul>
+							<li>Three A</li>
+							<li>Three B
+								<ul>
+									<li>Three B 2</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="rems">
+					<li>One</li>
+					<li>Two</li>
+					<li>Three
+						<ul>
+							<li>Three A</li>
+							<li>Three B
+								<ul>
+									<li>Three B 2</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="percent">
+				<h2>Percentage value</h2>
+				<div class="wrapper">
+					<div class="box px">I am 200px wide</div>
+					<div class="box percent">I am 40% wide</div>
+				</div>
+				<ul>
+					<li>One</li>
+					<li>Two</li>
+					<li>Three
+						<ul>
+							<li>Three A</li>
+							<li>Three B
+								<ul>
+									<li>Three B 2</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="opacity">
+				<h2>Opacity</h2>
+				<div class="wrapper">
+					<div class="box1">I am a box with opacity property</div>
+					<div class="box2">I am a box with opacity colour</div>
+				</div> 
+			</section>
+
+			<section id="percentMargin">
+				<h2>Margin in Percentage</h2>
+				<div class="box">
+					I have margin and padding set to 10% on all sides; percentage is relative to inline-size of parent.
+				  </div>
+			</section>
+
+			<section id="responsive">
+				<h2>Responsive Dimension</h2>
+				<article class="textEx">
+					<div class="minh">These boxes both have a min-height set...</div>
+					<div class="minh">These boxes both have a min-height set, this box has content in it which will need more space than the assigned height, and so it grows from the minimum.</div>
+				</article>
+				<article class="smallImageEx">
+					<div class="box"><img class="maxw" src="resource/image/favicon.png"></div>
+				</article>
+				<article class="largeImageEx">
+					<div class="box"><img class="maxw" src="resource/image/concept-art.jpg"></div>
+				</article>
+			</section>
+		</main>
+
+		<footer>
+			<p id="footerNote">All copyrights to Jeffrey</p>
+		</footer>
+
+	</body>
+</html>

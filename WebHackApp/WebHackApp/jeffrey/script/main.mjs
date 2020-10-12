@@ -1,3 +1,5 @@
+import { MyClass } from "./resource/script/module.mjs";
+
 // DOM: document object model allows Javascript to manipulate HTML elements
 const headingElement = document.querySelector('h1');
 headingElement.textContent = 'Hello world!';

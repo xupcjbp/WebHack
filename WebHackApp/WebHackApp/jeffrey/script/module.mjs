@@ -1,3 +1,4 @@
+export { MyClass };
 function MyClass( name ) {
 	this.myName = name;
 	this.setMyName = function( newName ) {
