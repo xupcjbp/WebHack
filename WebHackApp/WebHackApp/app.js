@@ -7,7 +7,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const frameGuard = require( 'frameguard' );
 // HTTPS setup
 const fs = require('fs')
 const https = require('https')
@@ -29,7 +28,7 @@ var app = express();
 app.set( 'jeffroot', path.join( __dirname, 'jeffrey' ));
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'react');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -37,9 +36,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use( frameGuard( { action: 'DENY' } ) );
 //app.use(express.static(path.join(__dirname, 'public')));
 
+//CORS
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 // hooking in router middleware first
 app.use('/', routes);
 app.use( '/jeffrey', jeffrouter );
@@ -48,11 +53,13 @@ app.use('/ryan', ryan);
 app.use(express.static("public"));
 app.use(express.static("views"));
 
+
 //serve jpeg file
 app.get('/test', function (req, res) {
     console.log(__dirname);
     res.sendFile(__dirname + '/test.html');
 });
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -3,38 +3,49 @@ const express = require('express');
 const router = express.Router();
 const url = require('url');
 //const constants = require('./constants');
-var querystring = require('querystring')
+var querystring = require('querystring');
 const axios = require("axios"); 
+const {spawn} = require("child_process");
 
 //constants
 const clientid = process.env.SPOTIFY_CLIENT_ID;
 const scopeList = ["user-read-playback-state" , "user-read-playback-state"];
 const payload = {
     "client_id": clientid, "response_type": "code",
-    "redirect_uri": "http://192.168.0.15:3000/ryan/callback", "scope": scopeList
+    "redirect_uri": "http://192.168.0.15/ryan/callback", "scope": scopeList
 };
 const AuthBaseUrl = "https://accounts.spotify.com/authorize?";
-const frontendServer = "http://192.168.0.15:3000/ryan/display";
+const frontendServer = "http://192.168.0.15:3000";
 
 let currentToken = {access_token: "", expires_in: 0};
-
-
+let songInfo = {title: "", artist: ""};
 
 
 /* GET Ryan home page. */
 router.get('/home', function (req, res) {
-    res.sendFile(__dirname + '/ryan.html');
+    res.render(__dirname + '/ryan.js');
 });
 
-router.get('/display', function (req,res) 
+/* handle api calls given access token*/
+router.get('/api', function (req,res) 
 {
-    let requrl = new URL(req.url, `http://${req.headers.host}`);
-    let urlparams = requrl.searchParams;
-    currentToken.access_token = urlparams.get("access_token");
-    currentToken.expires_in = urlparams.get("access_token");
-
-
-    
+    currentToken.access_token = req.query.access_token;
+    function getLyrics(song, artist){
+        let process = spawn("python",
+        ["./ryan/lyricsearch.py", song.toLowerCase(), artist.toLowerCase()]
+            );
+        process.stdout.on("data", function(data) {
+            console.log("Output from python script")
+            console.log(data.toString());
+            res.send(data.toString());
+        });
+        process.on("error", function(){
+            console.log("script error");
+        })
+        process.on("close", (code) => {
+            console.log("python script closed");
+        })
+    }
     //get auth code and exchange for access token then redirect
 
     //config for get request to get user data
@@ -47,13 +58,14 @@ router.get('/display', function (req,res)
             Authorization: 'Bearer ' + currentToken.access_token
         },
     };
-
+    
     //sending request and getting response
     axios(config).
     then(function (response) {
         if (response.status == 200) {
-            console.log(response.data.item.name);
-            res.send(response.data.item.name);
+            songInfo.title = response.data.item.name;
+            songInfo.artist = response.data.item.artists[0].name
+            getLyrics(songInfo.title, songInfo.artist);
         }
         else {
             res.send("status code = " + response.status);
@@ -96,7 +108,7 @@ router.get("/callback", function (req, res) {
         method: "post",
         params: {
             code: code,
-            redirect_uri: "http://192.168.0.15:3000/ryan/callback",
+            redirect_uri: "http://192.168.0.15/ryan/callback",
             grant_type: 'authorization_code'
         },
         headers: {
